@@ -11,12 +11,14 @@ body {
 nav {
     background-color: #630A05;
     padding: 10px 20px;
+    position: relative;
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .text {
@@ -30,13 +32,54 @@ nav {
     color: white;
 }
 
+.contato-link {
+    position: absolute;
+    right: 10px;
+    top: 10%;
+    transform: translateY(-120%);
+}
+
+.contato-link a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.contato-link a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.inicio-link {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-120%);
+}
+
+.inicio-link a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.inicio-link a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
 .links {
     list-style: none;
     display: flex;
+    margin-left: auto;
+    
 }
 
 .links li {
-    margin-left: 20px;
+    display: flex;
 }
 
 .links a {
