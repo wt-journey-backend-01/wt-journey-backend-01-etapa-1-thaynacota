@@ -26,10 +26,25 @@
     <div class="agradecimento">
         <div class="card-container">
             <h1>Obrigado pela sua sugestão!</h1>
+            <p id="nome"></p>
+            <p id="ingredientes"></p>
             <p>Iremos analisar a sua sugestão com muito carinho! 😄</p>
             <a href="/">Voltar para o cardápio online</a>
         </div>
     </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nome = params.get("nome");
+        const ingredientes = params.get("ingredientes");
+    
+        if (nome && ingredientes) {
+            document.getElementById("nome").innerHTML = `<strong>Nome do lanche:</strong> ${nome}`;
+            document.getElementById("ingredientes").innerHTML = `<strong>Ingredientes:</strong> ${ingredientes}`;
+        } else {
+            document.querySelector(".card").innerHTML = "<h2>Dados insuficientes. Por favor, preencha o formulário corretamente.</h2>";
+        }
+    </script>
 
 </body>
 
