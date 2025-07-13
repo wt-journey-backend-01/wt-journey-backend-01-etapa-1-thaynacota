@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    background-color: #630A05;
+    padding: 10px 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    color: yellow;
+    font-size: 1.5em;
+    margin: 0 10px;
+}
+
+/*Logo*/
+.logo {
+    color: white;
+}
+
+.links {
+    list-style: none;
+    display: flex;
+}
+
+.links li {
+    margin-left: 20px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+h1 {
+    margin: 20px 0;
+    margin-left: 20px;
+    margin-top: 50px;
+    text-align: center;
+    color: black;
+}
+
+form {
+    max-width: 500px;
+    margin: 30px auto;
+    margin-top: 50px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #cccc;
+    border-radius: 8px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1)
+}
+
+form div {
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #cccc;
+    border-radius: 4px;
+}
+
+.botao {
+    padding: 10px 20px;
+    background: #630A05;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #b92921;
+}
