@@ -41,7 +41,14 @@ app.post('/contato', (req, res) => {
         fs.writeFileSync(arquivoContatos, JSON.stringify(contatos, null, 2));
         console.log('Dados salvos com sucesso em:', arquivoContatos);
         
-        res.redirect('/contato/agradecimento');
+        res.status(200).send(`
+        <h1>Obrigado, ${nome}!<h1>
+        <p>Email: ${email}</p>
+        <p>Assunto: ${assunto}</p>
+        <p>Mensagem: ${mensagem}</p>
+        <a href="/">Voltar para a página inicial</a>
+    `);
+
     } catch (err) {
         console.error('Erro detalhado:', {
             message: err.message,
@@ -53,12 +60,22 @@ app.post('/contato', (req, res) => {
     }
 });
 
-app.get('/contato/agradecimento', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'agradecimento.html'));
-});
-
 app.get('/sugestao', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'sugestao.html'));
+    const { nome, ingredientes } = req.query;
+    
+    const filePath = path.join(__dirname, 'views', 'sugestao.html');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Erro ao carregar a página');
+        }
+
+        const htmlAtualizado = data
+            .replace('{{NOME}}', nome || 'Não informado')
+            .replace('{{INGREDIENTES}}', ingredientes || 'Não informados');
+
+        res.send(htmlAtualizado);
+    });
 });
 
 app.listen(PORT, () => {
